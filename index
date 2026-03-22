@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Site Scroll Swipe</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+.section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* Page titre */
+#title {
+    background: url('https://picsum.photos/1600/900') center/cover;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px black;
+}
+
+/* Sections contenu */
+.content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.content img, .content video {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.text {
+    max-width: 400px;
+    font-size: 18px;
+}
+
+/* Footer */
+#credits {
+    background: #111;
+    color: white;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="section" id="title">
+    MON SITE
+</div>
+
+<div class="section">
+    <div class="content">
+        <img src="https://picsum.photos/500/300">
+        <div class="text">
+            <h2>Image</h2>
+            <p>Texte à côté de l'image. Tu peux expliquer ce que tu veux ici.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="content">
+        <video controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+        <div class="text">
+            <h2>Vidéo</h2>
+            <p>Texte à côté de la vidéo.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="credits">
+    Crédits : Ton Nom
+</div>
+
+</body>
+</html>
