@@ -7,19 +7,28 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
+/* Animation dégradé */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Sections */
 .section {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 30px;
     box-sizing: border-box;
     flex-wrap: wrap;
 }
 
+/* Section titre */
 .title {
     background: url('images/photo1.webp') center/cover no-repeat;
     color: white;
@@ -27,53 +36,84 @@ body {
 }
 
 .title h1 {
-    font-size: 70px;
+    font-size: 50px;
+    margin: 0;
 }
 
+.title p {
+    font-size: 20px;
+}
+
+/* Sections de contenu avec fond dégradé animé */
+.section.content-section {
+    background: linear-gradient(-45deg, #ff6b6b, #f7d794, #6a89cc, #78e08f);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+/* Contenu */
 .content {
     display: flex;
-    gap: 60px;
+    gap: 40px;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 1; /* pour que le texte soit au-dessus du dégradé */
+    position: relative;
 }
 
 .content img {
-    width: 600px;
-    max-width: 90%;
+    width: 500px;
+    max-width: 100%;
     border-radius: 10px;
 }
 
 .text {
     max-width: 500px;
-    font-size: 20px;
+    font-size: 18px;
+    color: white; /* texte visible sur dégradé */
 }
 
+/* Section crédits */
 .credits {
     background: #111;
     color: white;
     text-align: center;
+    padding: 50px 20px;
 }
 
+/* Responsive mobile */
 @media (max-width: 900px) {
     .content {
         flex-direction: column;
         text-align: center;
     }
     .content img, .text {
-        max-width: 90%;
+        max-width: 100%;
+    }
+    .title h1 {
+        font-size: 40px;
+    }
+    .title p {
+        font-size: 16px;
+    }
+    .text {
+        font-size: 16px;
     }
 }
 </style>
 </head>
 <body>
 
+<!-- Section titre -->
 <section class="section title">
     <h1>ÉGALITÉ<br>HOMME FEMME</h1>
     <p>Informer • Aider • Agir</p>
 </section>
 
 <!-- Section 1 -->
-<section class="section">
+<section class="section content-section">
     <div class="content">
         <img src="images/photo2.webp" alt="Inégalités salariales">
         <div class="text">
@@ -88,8 +128,8 @@ body {
     </div>
 </section>
 
-<!-- Section 2 : inversé image/texte -->
-<section class="section">
+<!-- Section 2 inversée -->
+<section class="section content-section">
     <div class="content" style="flex-direction: row-reverse;">
         <img src="images/photo3.webp" alt="Violences faites aux femmes">
         <div class="text">
@@ -105,7 +145,7 @@ body {
 </section>
 
 <!-- Section 3 -->
-<section class="section">
+<section class="section content-section">
     <div class="content">
         <img src="images/photo4.webp" alt="Comment agir">
         <div class="text">
@@ -124,6 +164,7 @@ body {
     </div>
 </section>
 
+<!-- Crédits -->
 <section class="section credits">
     <h2>SAFE PLACE</h2>
     <p>
