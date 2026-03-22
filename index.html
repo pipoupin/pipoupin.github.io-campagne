@@ -63,6 +63,9 @@ body {
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Contenu */
@@ -70,6 +73,7 @@ body {
     display: flex;
     gap: 40px;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     z-index: 1;
     position: relative;
@@ -132,7 +136,7 @@ body {
 /* Responsive mobile */
 @media (max-width: 900px) {
     .content {
-        flex-direction: column;
+        flex-direction: column; /* image au-dessus du texte */
         justify-content: center;
         align-items: center;
     }
@@ -234,9 +238,7 @@ function showSection(index) {
     if(index < 0 || index >= sections.length) return;
     sections.forEach((sec, i) => sec.classList.toggle('active', i === index));
     current = index;
-    // bouton précédent caché sur première slide
     document.getElementById('prevBtn').disabled = current === 0;
-    // bouton suivant caché sur dernière slide
     document.getElementById('nextBtn').disabled = current === sections.length - 1;
 }
 
