@@ -7,7 +7,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* on laisse le scroll vertical normal */
+    overflow: hidden; /* scroll désactivé */
 }
 
 /* Animation dégradé */
@@ -19,13 +19,26 @@ body {
 
 /* Sections */
 .section {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px;
     box-sizing: border-box;
     flex-wrap: wrap;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.8s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Section active */
+.section.active {
+    opacity: 1;
+    pointer-events: all;
 }
 
 /* Section titre */
@@ -50,7 +63,6 @@ body {
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     border-radius: 15px;
-    margin: 20px 0;
 }
 
 /* Contenu */
@@ -73,6 +85,7 @@ body {
     max-width: 500px;
     font-size: 18px;
     color: white;
+    text-align: center;
 }
 
 /* Section crédits */
@@ -83,13 +96,45 @@ body {
     padding: 50px 20px;
 }
 
+/* Boutons navigation */
+#prevBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;  /* gauche */
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#nextBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* droite */
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.nav-btn:disabled {
+    display: none; /* bouton caché quand désactivé */
+}
+
 /* Responsive mobile */
 @media (max-width: 900px) {
     .content {
         flex-direction: column;
-        justify-content: center; /* centrer verticalement */
-        align-items: center;     /* centrer horizontalement */
-        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
     .content img, .text {
         max-width: 90%;
@@ -109,7 +154,7 @@ body {
 <body>
 
 <!-- Section titre -->
-<section class="section title">
+<section class="section title active">
     <h1>ÉGALITÉ<br>HOMME FEMME</h1>
     <p>Informer • Aider • Agir</p>
 </section>
@@ -166,7 +211,7 @@ body {
     </div>
 </section>
 
-<!-- Crédits -->
+<!-- Section crédits -->
 <section class="section credits">
     <h2>SAFE PLACE</h2>
     <p>
@@ -176,6 +221,28 @@ body {
         Urgences : 112
     </p>
 </section>
+
+<!-- Boutons navigation -->
+<button id="prevBtn" class="nav-btn" disabled>Précédent</button>
+<button id="nextBtn" class="nav-btn">Suivant</button>
+
+<script>
+const sections = document.querySelectorAll('.section');
+let current = 0;
+
+function showSection(index) {
+    if(index < 0 || index >= sections.length) return;
+    sections.forEach((sec, i) => sec.classList.toggle('active', i === index));
+    current = index;
+    // bouton précédent caché sur première slide
+    document.getElementById('prevBtn').disabled = current === 0;
+    // bouton suivant caché sur dernière slide
+    document.getElementById('nextBtn').disabled = current === sections.length - 1;
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => showSection(current - 1));
+document.getElementById('nextBtn').addEventListener('click', () => showSection(current + 1));
+</script>
 
 </body>
 </html>
