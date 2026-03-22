@@ -136,9 +136,11 @@ body {
 /* Responsive mobile */
 @media (max-width: 900px) {
     .content {
-        flex-direction: column; /* image au-dessus du texte */
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;   /* image au-dessus du texte */
+        justify-content: center;   /* centre verticalement */
+        align-items: center;       /* centre horizontalement */
+        height: 100%;              /* occupe tout l’espace de la section */
+        flex-wrap: nowrap;         /* pas de wrap */
     }
     .content img, .text {
         max-width: 90%;
