@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Égalité Homme Femme - Mobile Optimized</title>
+<title>Igualdad Hombre Mujer - Optimizado para Móvil</title>
 <style>
 :root {
     --nav-height: 60px;
@@ -16,19 +16,18 @@ body {
     background: #111;
 }
 
-/* Sections */
 .section {
     height: 100dvh;
     width: 100%;
     display: none;
     flex-direction: column;
-    justify-content: flex-start; /* Alignement en haut pour permettre scroll si besoin */
+    justify-content: flex-start;
     align-items: center;
     padding: 20px;
     padding-bottom: calc(var(--nav-height) + 20px);
     box-sizing: border-box;
     text-align: center;
-    overflow-y: auto; /* Permet de scroller sur mobile si contenu long */
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -36,7 +35,6 @@ body {
     display: flex;
 }
 
-/* Backgrounds */
 .title {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                 url('images/photo1.webp') center/cover no-repeat;
@@ -55,7 +53,6 @@ body {
     100% {background-position: 0% 50%;}
 }
 
-/* Conteneur contenu */
 .content {
     display: flex;
     flex-direction: column; 
@@ -71,7 +68,7 @@ body {
     width: 100%;
     max-width: 450px;
     height: auto;
-    max-height: 35vh; /* Réduit pour laisser place au texte */
+    max-height: 35vh;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -86,20 +83,13 @@ body {
 .text h2 { margin-top: 0; font-size: 1.5rem; }
 .text p { font-size: 1rem; line-height: 1.4; }
 
-/* Desktop Adjustment */
 @media (min-width: 901px) {
-    .section {
-        justify-content: center; /* Centrage vertical sur desktop */
-    }
-    .content {
-        flex-direction: row;
-        gap: 50px;
-    }
+    .section { justify-content: center; }
+    .content { flex-direction: row; gap: 50px; }
     .content.reverse { flex-direction: row-reverse; }
     .content img { max-height: 500px; }
 }
 
-/* Barre navigation fixe */
 .nav-bar {
     position: fixed;
     bottom: 0;
@@ -133,70 +123,68 @@ body {
 <body>
 
 <section class="section title active">
-    <h1>ÉGALITÉ<br>HOMME FEMME</h1>
-    <p>Informer • Aider • Agir</p>
+    <h1>IGUALDAD<br>HOMBRE MUJER</h1>
+    <p>Informar • Ayudar • Actuar</p>
 </section>
 
 <section class="section content-section">
     <div class="content">
-        <img src="images/photo2.webp" alt="Inégalités">
+        <img src="images/photo2.webp" alt="Desigualdades">
         <div class="text">
-            <h2>Inégalités salariales</h2>
-            <p>Les femmes gagnent en moyenne moins que les hommes à poste égal. La transparence est la clé du changement.</p>
+            <h2>Desigualdad salarial</h2>
+            <p>Las mujeres ganan en promedio menos que los hombres en el mismo puesto. La transparencia es clave para el cambio.</p>
         </div>
     </div>
 </section>
 
 <section class="section content-section">
     <div class="content reverse">
-        <img src="images/photo3.webp" alt="Violences">
+        <img src="images/photo3.webp" alt="Violencia">
         <div class="text">
-            <h2>Violences faites aux femmes</h2>
-            <p>Le 3919 est le numéro national de référence. Ne restez pas seule face à la violence.</p>
+            <h2>Violencia contra las mujeres</h2>
+            <p>El 3919 es el número nacional de referencia. No estés sola frente a la violencia.</p>
         </div>
     </div>
 </section>
 
 <section class="section content-section">
     <div class="content">
-        <img src="images/photo4.webp" alt="Agir">
+        <img src="images/photo4.webp" alt="Actuar">
         <div class="text">
-            <h2>Comment agir ?</h2>
-            <p>Soutenir les victimes, dénoncer les injustices, éduquer à l'égalité et partager les informations.</p>
+            <h2>¿Cómo actuar?</h2>
+            <p>Apoyar a las víctimas, denunciar injusticias, educar en igualdad y compartir información.</p>
         </div>
     </div>
 </section>
 
-<!-- Nouvelle slide Cyber-harcèlement -->
 <section class="section content-section">
     <div class="content reverse">
-        <img src="images/photo5.webp" alt="Cyber-harcèlement">
+        <img src="images/photo5.webp" alt="Ciberacoso">
         <div class="text">
-            <h2>Cyber-harcèlement</h2>
-            <p>Le cyber-harcèlement touche de plus en plus de jeunes filles. Parler, signaler et bloquer les agresseurs est essentiel.</p>
+            <h2>Ciberacoso</h2>
+            <p>El ciberacoso afecta cada vez más a las jóvenes. Hablar, denunciar y bloquear a los agresores es esencial.</p>
         </div>
     </div>
 </section>
 
-<!-- Nouvelle slide Body Positive -->
 <section class="section content-section">
     <div class="content">
         <img src="images/photo6.webp" alt="Body Positive">
         <div class="text">
             <h2>Body Positive</h2>
-            <p>Promouvoir le respect de soi et l'acceptation de toutes les morphologies renforce l'égalité et la confiance en soi.</p>
+            <p>Promover el respeto a uno mismo y la aceptación de todas las morfologías fortalece la igualdad y la confianza en sí mismo.</p>
         </div>
     </div>
 </section>
 
 <section class="section credits">
     <h2>SAFE PLACE</h2>
-    <p>Police : 17 | Urgences : 112 | Violences Femmes Info : 3919</p>
+    <p>Policía: 17 | Emergencias: 112 | Violencia contra mujeres: 3919</p>
 </section>
 
 <div class="nav-bar">
-    <button id="prevBtn" disabled>Précédent</button>
-    <button id="nextBtn">Suivant</button>
+    <button id="prevBtn" disabled>Anterior</button>
+    <button id="nextBtn">Siguiente</button>
 </div>
 
 <script>
@@ -213,7 +201,6 @@ function updateUI() {
 document.getElementById('prevBtn').onclick = () => { if(current>0){current--; updateUI();} };
 document.getElementById('nextBtn').onclick = () => { if(current<sections.length-1){current++; updateUI();} };
 
-// Swipe basique mobile
 let touchstartY=0, touchendY=0;
 document.addEventListener('touchstart', e => touchstartY = e.changedTouches[0].screenY);
 document.addEventListener('touchend', e => {
