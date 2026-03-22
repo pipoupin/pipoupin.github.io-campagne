@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Égalité Homme Femme</title>
+<title>Égalité Homme Femme - Mobile Optimized</title>
 <style>
 :root {
     --nav-height: 60px;
@@ -11,23 +11,25 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden; /* Évite les scrolls entre les slides */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
     background: #111;
 }
 
 /* Sections */
 .section {
-    height: 100dvh; /* Hauteur dynamique pour mobile */
+    height: 100dvh;
     width: 100%;
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Alignement en haut pour permettre scroll si besoin */
     align-items: center;
     padding: 20px;
-    padding-bottom: var(--nav-height); /* Espace pour la barre de navigation */
+    padding-bottom: calc(var(--nav-height) + 20px);
     box-sizing: border-box;
     text-align: center;
+    overflow-y: auto; /* Permet de scroller sur mobile si contenu long */
+    -webkit-overflow-scrolling: touch;
 }
 
 .section.active {
@@ -36,13 +38,13 @@ body {
 
 /* Backgrounds */
 .title {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                 url('images/photo1.webp') center/cover no-repeat;
     color: white;
 }
 
 .content-section {
-    background: linear-gradient(-45deg, #ff6b6b, #f7d794, #6a89cc, #78e08f);
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
@@ -53,41 +55,48 @@ body {
     100% {background-position: 0% 50%;}
 }
 
-/* Conteneur de contenu */
+/* Conteneur contenu */
 .content {
     display: flex;
-    flex-direction: column; /* Mobile : Image au-dessus */
+    flex-direction: column; 
     align-items: center;
-    gap: 25px;
+    justify-content: center;
+    gap: 20px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px;
+    flex: 1;
 }
 
 .content img {
     width: 100%;
-    max-width: 480px;
+    max-width: 450px;
     height: auto;
-    max-height: 30vh; /* Garde de la place pour le texte sur petit écran */
+    max-height: 35vh; /* Réduit pour laisser place au texte */
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    flex-shrink: 0;
 }
 
 .text {
     color: white;
-    max-width: 550px;
-    font-size: 17px;
+    max-width: 500px;
 }
 
-.text h2 { margin-top: 0; font-size: 1.6rem; }
-.text p { margin: 10px 0; line-height: 1.4; }
+.text h2 { margin-top: 0; font-size: 1.5rem; }
+.text p { font-size: 1rem; line-height: 1.4; }
 
-/* Desktop : Côte à côte */
+/* Desktop Adjustment */
 @media (min-width: 901px) {
-    .content { flex-direction: row; gap: 50px; }
+    .section {
+        justify-content: center; /* Centrage vertical sur desktop */
+    }
+    .content {
+        flex-direction: row;
+        gap: 50px;
+    }
     .content.reverse { flex-direction: row-reverse; }
     .content img { max-height: 500px; }
-    .text { text-align: left; } /* Texte aligné à gauche sur PC */
 }
 
 /* Barre navigation fixe */
@@ -110,13 +119,15 @@ body {
     color: white;
     font-size: 16px;
     font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
     transition: background 0.3s;
 }
 
+.nav-bar button:active { background: rgba(255,255,255,0.1); }
 .nav-bar button:disabled { opacity: 0.3; cursor: not-allowed; }
 
-.credits { background: #000; color: white; }
+.credits { background: #000; color: white; padding: 20px; }
 </style>
 </head>
 <body>
@@ -128,44 +139,59 @@ body {
 
 <section class="section content-section">
     <div class="content">
-        <img src="images/photo2.webp" alt="Inégalités salariales">
+        <img src="images/photo2.webp" alt="Inégalités">
         <div class="text">
             <h2>Inégalités salariales</h2>
-            <p>Les femmes gagnent en moyenne moins que les hommes à poste égal. Cela s'explique par des discriminations, moins d'accès aux postes à responsabilités et des carrières plus souvent interrompues.</p>
-            <p><b>Solution :</b> transparence des salaires, lois, égalité professionnelle.</p>
+            <p>Les femmes gagnent en moyenne moins que les hommes à poste égal. La transparence est la clé du changement.</p>
         </div>
     </div>
 </section>
 
 <section class="section content-section">
     <div class="content reverse">
-        <img src="images/photo3.webp" alt="Violences faites aux femmes">
+        <img src="images/photo3.webp" alt="Violences">
         <div class="text">
             <h2>Violences faites aux femmes</h2>
-            <p>Violences physiques, psychologiques ou sexuelles touchent encore beaucoup de femmes dans le monde.</p>
-            <p><b>Numéro d'aide :</b> 3919</p>
-            <p>Parler, signaler et protéger les victimes est essentiel.</p>
+            <p>Le 3919 est le numéro national de référence. Ne restez pas seule face à la violence.</p>
         </div>
     </div>
 </section>
 
 <section class="section content-section">
     <div class="content">
-        <img src="images/photo4.webp" alt="Comment agir">
+        <img src="images/photo4.webp" alt="Agir">
         <div class="text">
             <h2>Comment agir ?</h2>
-            <p>Soutenir les victimes, dénoncer les injustices, éduquer à l'égalité, partager les informations.</p>
-            <p>
-                #EgaliteFemmeHomme | #StopViolences<br>
-                #Respect | #SafePlace
-            </p>
+            <p>Soutenir les victimes, dénoncer les injustices, éduquer à l'égalité et partager les informations.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Nouvelle slide Cyber-harcèlement -->
+<section class="section content-section">
+    <div class="content reverse">
+        <img src="images/photo5.webp" alt="Cyber-harcèlement">
+        <div class="text">
+            <h2>Cyber-harcèlement</h2>
+            <p>Le cyber-harcèlement touche de plus en plus de jeunes filles. Parler, signaler et bloquer les agresseurs est essentiel.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Nouvelle slide Body Positive -->
+<section class="section content-section">
+    <div class="content">
+        <img src="images/photo6.webp" alt="Body Positive">
+        <div class="text">
+            <h2>Body Positive</h2>
+            <p>Promouvoir le respect de soi et l'acceptation de toutes les morphologies renforce l'égalité et la confiance en soi.</p>
         </div>
     </div>
 </section>
 
 <section class="section credits">
     <h2>SAFE PLACE</h2>
-    <p>Numéros utiles :<br>Police : 17 | Aide : 3919 | Urgences : 112</p>
+    <p>Police : 17 | Urgences : 112 | Violences Femmes Info : 3919</p>
 </section>
 
 <div class="nav-bar">
@@ -177,24 +203,23 @@ body {
 const sections = document.querySelectorAll('.section');
 let current = 0;
 
-function showSection(index) {
-    if(index < 0 || index >= sections.length) return;
-    sections.forEach((sec, i) => sec.classList.toggle('active', i === index));
-    current = index;
-    document.getElementById('prevBtn').disabled = current === 0;
-    document.getElementById('nextBtn').disabled = current === sections.length - 1;
+function updateUI() {
+    sections.forEach((sec,i) => sec.classList.toggle('active', i===current));
+    document.getElementById('prevBtn').disabled = (current===0);
+    document.getElementById('nextBtn').disabled = (current===sections.length-1);
+    window.scrollTo(0,0);
 }
 
-document.getElementById('prevBtn').addEventListener('click', () => showSection(current - 1));
-document.getElementById('nextBtn').addEventListener('click', () => showSection(current + 1));
+document.getElementById('prevBtn').onclick = () => { if(current>0){current--; updateUI();} };
+document.getElementById('nextBtn').onclick = () => { if(current<sections.length-1){current++; updateUI();} };
 
-// Optionnel : Ajout du swipe pour mobile
-let startY = 0;
-document.addEventListener('touchstart', e => startY = e.touches[0].pageY);
+// Swipe basique mobile
+let touchstartY=0, touchendY=0;
+document.addEventListener('touchstart', e => touchstartY = e.changedTouches[0].screenY);
 document.addEventListener('touchend', e => {
-    let endY = e.changedTouches[0].pageY;
-    if (startY - endY > 50) document.getElementById('nextBtn').click();
-    if (endY - startY > 50) document.getElementById('prevBtn').click();
+    touchendY = e.changedTouches[0].screenY;
+    if(touchstartY - touchendY > 50) document.getElementById('nextBtn').click();
+    if(touchendY - touchstartY > 50) document.getElementById('prevBtn').click();
 });
 </script>
 
